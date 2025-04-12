@@ -1,3 +1,4 @@
+package easyProblems;
 //https://leetcode.com/problems/two-sum/
 
 import java.util.Arrays;

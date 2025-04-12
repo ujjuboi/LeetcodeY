@@ -1,3 +1,4 @@
+package easyProblems;
 //https://leetcode.com/problems/palindrome-number/
 
 public class Palindrome {
