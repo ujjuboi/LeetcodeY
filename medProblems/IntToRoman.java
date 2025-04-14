@@ -30,7 +30,7 @@ public class IntToRoman {
             } else if(operativeNum == 9){
                 romanNumeral += "CM";
             } else if(operativeNum < 5){
-                for(int i=4; i<operativeNum; i++){
+                for(int i=0; i<operativeNum; i++){
                     romanNumeral += "C";
                 }
             } else {
@@ -49,7 +49,7 @@ public class IntToRoman {
             } else if(operativeNum == 9){
                 romanNumeral += "XC";
             } else if(operativeNum < 5){
-                for(int i=0; i<operativeNum/10; i++){
+                for(int i=0; i<operativeNum; i++){
                     romanNumeral += "X";
                 }
             } else {
