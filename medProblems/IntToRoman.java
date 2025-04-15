@@ -1,84 +1,78 @@
 public class IntToRoman {
     public static void main(String[] args){
-        int num = 10;
+        int num = 1;
         IntToRoman p = new IntToRoman();
-        for(int i =0; i<1; i++){
-            System.out.println("once");
-        }
         System.out.println(p.intToRoman(num));
     }
 
-    public String intToRoman(int num){
-        String romanNumeral = "";
+    public String intToRoman(int num) {
         int operativeNum = 0;
-        if(0 > num || num > 3999){
+        String romanNumeral = "";
+        if(1 > num || num > 3999){
             return romanNumeral;
         }
         //Check for M:
         operativeNum = (num/1000)%10;
-        if(operativeNum != 0){
-            for(int i=0; i<operativeNum; i++){
-                romanNumeral += "M";
-            }
+        for(int i=0; i<operativeNum; i++){
+            romanNumeral += "M";
         }
         //Check for D and C:
         operativeNum = (num/100)%10;
-        if(operativeNum != 0){
-            //switch case:
-            if(operativeNum == 4){
-                romanNumeral += "CD";
-            } else if(operativeNum == 9){
+        switch(operativeNum){
+            case 9:
                 romanNumeral += "CM";
-            } else if(operativeNum < 5){
+                break;
+            case 4:
+                romanNumeral += "CD";
+                break;
+            default:
+                if(operativeNum >= 5){
+                    romanNumeral += "D";
+                    operativeNum -= 5;
+                } 
                 for(int i=0; i<operativeNum; i++){
                     romanNumeral += "C";
                 }
-            } else {
-                romanNumeral += "D";
-                operativeNum = num%500;
-                for(int i=0; i<operativeNum/100; i++){
-                    romanNumeral += "C";
-                }
-            }
+                break;
         }
-        //Check for L,X:
+        //Check for L and X:
         operativeNum = (num/10)%10;
-        if(operativeNum != 0){
-            if(operativeNum == 4){
-                romanNumeral += "XL";
-            } else if(operativeNum == 9){
+        switch(operativeNum){
+            case 9:
                 romanNumeral += "XC";
-            } else if(operativeNum < 5){
+                break;
+            case 4:
+                romanNumeral += "XL";
+                break;
+            default:
+                if(operativeNum >= 5){
+                    romanNumeral += "L";
+                    operativeNum -= 5;
+                } 
                 for(int i=0; i<operativeNum; i++){
                     romanNumeral += "X";
                 }
-            } else {
-                romanNumeral += "L";
-                operativeNum = num%50;
-                for(int i=0; i<operativeNum/10; i++){
-                    romanNumeral += "X";
-                }
-            }
+                break;
         }
         //Check for V and I:
         operativeNum = num%10;
-        if(operativeNum == 9){
-            romanNumeral += "IX";
-        } else if(operativeNum == 4){
-            romanNumeral += "IV";
-        } else if(operativeNum < 5){
-            for(int i=0; i<operativeNum; i++){
-                romanNumeral += "I";
-            }
-        } else {
-            romanNumeral += "V";
-            operativeNum -= 5;
-            for(int i=0; i<operativeNum/1; i++){
-                romanNumeral += "I";
-            }
+        switch(operativeNum){
+            case 9:
+                romanNumeral += "IX";
+                break;
+            case 4:
+                romanNumeral += "IV";
+                break;
+            default:
+                if(operativeNum >= 5){
+                    romanNumeral += "V";
+                    operativeNum -= 5;
+                } 
+                for(int i=0; i<operativeNum; i++){
+                    romanNumeral += "I";
+                }
+                break;
         }
-        
         return romanNumeral;
     }
-
 }
