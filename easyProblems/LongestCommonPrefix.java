@@ -1,39 +1,39 @@
 package easyProblems;
 //https://leetcode.com/problems/longest-common-prefix/
 public class LongestCommonPrefix {
-    public static void main(String[] args){
-        LongestCommonPrefix p = new LongestCommonPrefix();
-        String[] strs = {"aaa","aa","aaa"};
-        System.out.println(p.longestCommonPrefix(strs));
+    public static void main (String args[]){
+        final long startTime = System.nanoTime();
+        // Do something
+        args = new String[]{"acc","aaa","aaba"};
+        LongestCommonPrefix l = new LongestCommonPrefix();
+        System.out.println("The longest common prefix among the words is: " + l.longestCommonPrefix(args));
+        final long endTime = System.nanoTime();
+        System.out.println("Total execution time: 0." + (endTime - startTime) + " ms");
     }
-
-    private String longestCommonPrefix(String[] strs) {
-        String prefix = "";
+    private String longestCommonPrefix(String strs[]){
+        String prefix = strs[0];
         if(strs.length == 1){
             return strs[0];
         }
-        for (int i=0; i<strs.length-1; i++){
-            String firstString = "";
-            if(i == 0){
-                firstString = strs[i];
+        // Compare first two words to get the prefix:
+        int limit = 0;
+        for(int i=0; i<strs.length-1; i++){
+
+            if(strs[i].length() > strs[i+1].length()){
+                limit = strs[i+1].length();
             } else {
-                firstString = prefix;
-                prefix = "";
+                limit = strs[i].length();
             }
-            String secondString = strs[i+1];
-            for(int j=0; j<firstString.length();){
-                for(int k=0; k<secondString.length(); k++){
-                    if(j+1>firstString.length()){
-                        break;
-                    } else if (firstString.charAt(j) == secondString.charAt(k)){
-                        prefix += firstString.charAt(j);
-                    } else {
-                        break;
-                    }
-                    j++;
+
+            for(int j=0; j<limit; j++){
+                if(prefix.charAt(j) == strs[i+1].charAt(j)){
+                    prefix += strs[i].charAt(j);
+                } else {
+                    limit = j;
+                    break;
                 }
-                break;
             }
+            prefix = prefix.substring(0, limit);
             if(prefix.equals("")){
                 return prefix;
             }
