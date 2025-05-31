@@ -1,11 +1,14 @@
 package easyProblems;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GreatestCommonDivisorString {
     public static void main (String args[]){
         final long startTime = System.nanoTime();
         // Do something
         GreatestCommonDivisorString gm = new GreatestCommonDivisorString();
-        System.out.println(gm.cdOfStrings("LEET", "CODE"));
+        System.out.println(gm.approachTwo("ABABAB", "ABAB"));
         final long endTime = System.nanoTime();
         System.out.println("Total execution time: 0." + (endTime - startTime) + " ms");
     }
@@ -43,6 +46,37 @@ public class GreatestCommonDivisorString {
             } 
             divisor--;
         } while(divisor != 0);
+        return "";
+    }
+
+    private String approachTwo(String str1, String str2){
+        int divisor = 1;
+        List<Integer> divisors = new ArrayList<>();
+        int max = str1.length();
+        if(str1.length() < str2.length()){
+            max = str2.length();
+        }
+        do {
+            if(str1.length()%divisor == 0 && str2.length()%divisor == 0){
+                String prefix = str2.substring(0, divisor);
+                for(int i=1; i<str1.length()/divisor; i++){
+                    prefix += str2.substring(0, divisor);
+                }
+                if(prefix.equals(str1)){
+                    prefix = str1.substring(0, divisor);
+                    for(int i=1; i<str2.length()/divisor; i++){
+                        prefix += str1.substring(0, divisor);
+                    }
+                    if(prefix.equals(str2)){
+                        divisors.add(divisor);
+                    }
+                }
+            }
+            divisor++;
+        } while (divisor <= max);
+        if(divisors.size() > 0){
+            return str1.substring(0, divisors.get(divisors.size()-1));
+        } 
         return "";
     }
 }
