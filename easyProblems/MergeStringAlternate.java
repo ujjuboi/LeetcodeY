@@ -12,10 +12,6 @@ public class MergeStringAlternate{
     
     private String mergeAlternately(String word1, String word2) {
         String merged = "";
-        // int doCheckFor = word1.length();
-        // if(word1.length() < word2.length()){
-        //     doCheckFor = word2.length();
-        // } 
         for(int i=0; i<word1.length(); i++){
             merged += word1.charAt(i);
             if(i >= word2.length()){
