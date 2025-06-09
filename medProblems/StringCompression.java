@@ -6,7 +6,7 @@ public class StringCompression {
       char[] chars = {'a','a','b','b','c','c','c'};
       System.out.println(sc.compress(chars));
       final long endTime = System.nanoTime();
-      // System.out.println('Total execution time: 0.' + (endTime - startTime) + ' ms');
+      System.out.println("Total execution time: 0." + (endTime - startTime) + " ms");
   }
   private int compress(char[] chars) {
     if(chars.length == 1){

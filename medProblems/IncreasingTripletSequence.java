@@ -1,8 +1,6 @@
 //Cheated with this: https://www.youtube.com/watch?v=90tYQ5jNVPo
 //bruh
 
-package medProblems;
-
 public class IncreasingTripletSequence {
   public static void main (String args[]){
     final long startTime = System.nanoTime();
