@@ -1,5 +1,3 @@
-package medProblems;
-
 public class ProductOfArrayExceptSelf {
   public static void main (String args[]){
       final long startTime = System.nanoTime();

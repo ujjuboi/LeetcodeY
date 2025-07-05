@@ -1,5 +1,3 @@
-package medProblems;
-
 public class ReverseWordsInString{
   public static void main (String args[]){
     final long startTime = System.nanoTime();
