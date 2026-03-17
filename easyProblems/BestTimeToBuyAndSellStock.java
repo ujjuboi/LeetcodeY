@@ -1,5 +1,3 @@
-package easyProblems;
-
 public class BestTimeToBuyAndSellStock {
   public static void main(String args[]) {
     final long startTime = System.nanoTime();
